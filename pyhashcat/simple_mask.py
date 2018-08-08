@@ -8,7 +8,6 @@ from pyhashcat import Hashcat
 def cracked_callback(sender):
 	print("CRACKED-", id(sender), "EVENT_CRACKER_HASH_CRACKED")
 
-
 def finished_callback(sender):
 	print("FIN-", id(sender), "EVENT_CRACKER_FINISHED")
 
@@ -31,6 +30,8 @@ print("[!] cb_id any: ", hc.event_connect(callback=any_callback, signal="ANY"))
 hc.hash = "8743b52063cd84097a65d1633f5c74f5"
 hc.mask = "?l?l?l?l?l?l?l"
 hc.quiet = True
+hc.rp_gen = 0
+
 hc.potfile_disable = True
 hc.outfile = os.path.join(os.path.expanduser('~'), "outfile.txt")
 print("[+] Writing to ", hc.outfile)
